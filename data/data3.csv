@@ -1,0 +1,28 @@
+
+import csv
+import os
+
+# Define the file name and directory path
+file_name = "data3.csv"
+directory = "data"
+
+# Create the directory if it doesn't exist yet
+if not os.path.exists(directory):
+    os.makedirs(directory)
+
+# Define the data to be written to the CSV file
+data = [
+    ["Name", "Age", "Gender"],
+    ["John Smith", 32, "Male"],
+    ["Jane Doe", 25, "Female"],
+    ["Bob Johnson", 41, "Male"]
+]
+
+# Open the CSV file and write the data to it
+with open(os.path.join(directory, file_name), "w", newline="") as file:
+    writer = csv.writer(file)
+    for row in data:
+        writer.writerow(row)
+
+# Confirm that the file was created and written to successfully
+print(f"{os.path.join(directory, file_name)} created and written to successfully.")
