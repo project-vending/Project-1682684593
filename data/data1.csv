@@ -1,0 +1,20 @@
+python
+import csv
+
+filename = 'data/data1.csv'
+
+# Define the column names
+fieldnames = ['id', 'name', 'age']
+
+# Define the data
+data = [
+    {'id': 1, 'name': 'John', 'age': 25},
+    {'id': 2, 'name': 'Jane', 'age': 30},
+    {'id': 3, 'name': 'Bob', 'age': 35}
+]
+
+# Write the data to CSV file
+with open(filename, 'w', newline='') as file:
+    writer = csv.DictWriter(file, fieldnames=fieldnames)
+    writer.writeheader()
+    writer.writerows(data)
